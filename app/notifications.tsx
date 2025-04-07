@@ -9,26 +9,26 @@ export default function Notifications() {
   const router = useRouter();
   const { colors } = useTheme();
 
-  // Sample notifications data
+  // Sample notifications data (gym-focused)
   const notifications = [
     {
       id: 1,
-      title: "Lembrete de Refeição",
-      message: "Não esqueça de registrar suas refeições de hoje!",
+      title: "Silva Day",
+      message: "Garanta sua vaga para esse encontro inesquecível.",
       time: "Agora",
       read: false,
     },
     {
       id: 2,
-      title: "Novas Receitas",
-      message: "Confira as novas receitas adicionadas esta semana.",
+      title: "Lembrete de Treino",
+      message: "Você ainda não agendou seu treino para amanhã.",
       time: "2h atrás",
       read: true,
     },
     {
       id: 3,
-      title: "Atualização do App",
-      message: "NutriMacros foi atualizado com novos recursos!",
+      title: "Nova Ficha de Exercícios",
+      message: "Sua nova rotina de treino está disponível no app.",
       time: "1d atrás",
       read: true,
     },
@@ -59,9 +59,7 @@ export default function Notifications() {
                   <Feather name="bell" size={18} color={notification.read ? colors.mutedForeground : colors.primary} />
                 </View>
                 <View className="flex-1">
-                  <Text className={`font-medium ${notification.read ? "text-foreground" : "text-foreground"}`}>
-                    {notification.title}
-                  </Text>
+                  <Text className={`font-medium text-foreground`}>{notification.title}</Text>
                   <Text className="text-muted-foreground mt-1">{notification.message}</Text>
                   <Text className="text-muted-foreground text-xs mt-2">{notification.time}</Text>
                 </View>
