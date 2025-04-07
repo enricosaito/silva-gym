@@ -99,7 +99,7 @@ export default function Home() {
 
   return (
     <SafeAreaView className="flex-1 bg-background">
-      <Header title="Scar Fit ⚡️" />
+      <Header title="Silva Gym 🍑" />
 
       <ScrollView className="flex-1" refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
         <View className="px-4 py-3 mt-3">
