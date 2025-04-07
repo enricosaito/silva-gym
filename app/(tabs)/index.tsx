@@ -1,6 +1,15 @@
 // app/(tabs)/index.tsx (partial update to implement the new component)
 import React, { useState, useEffect } from "react";
-import { Text, View, Pressable, SafeAreaView, ScrollView, ActivityIndicator, RefreshControl } from "react-native";
+import {
+  Text,
+  View,
+  Pressable,
+  Image,
+  SafeAreaView,
+  ScrollView,
+  ActivityIndicator,
+  RefreshControl,
+} from "react-native";
 import { useRouter } from "expo-router";
 import { Feather } from "@expo/vector-icons";
 import { useTheme } from "../context/ThemeContext";
@@ -99,7 +108,14 @@ export default function Home() {
 
   return (
     <SafeAreaView className="flex-1 bg-background">
-      <Header title="Silva Gym 🍑" />
+      <Header
+        logo={
+          <Image
+            source={require("../../assets/images/Logo-Laranja.webp")}
+            style={{ width: 120, height: 40, resizeMode: "contain" }}
+          />
+        }
+      />
 
       <ScrollView className="flex-1" refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
         <View className="px-4 py-3 mt-3">
