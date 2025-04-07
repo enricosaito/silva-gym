@@ -10,7 +10,14 @@ export default function StoreScreen() {
 
   return (
     <SafeAreaView className="flex-1 bg-background">
-      <Header title="Loja" />
+      <Header
+        logo={
+          <Image
+            source={require("../../assets/images/Logo-SN.webp")}
+            style={{ width: 120, height: 40, resizeMode: "contain" }}
+          />
+        }
+      />
 
       <ScrollView className="flex-1 p-4">
         <Text className="text-2xl font-bold text-foreground mb-6">Produtos Premium</Text>
@@ -52,13 +59,16 @@ export default function StoreScreen() {
         {/* Product 1 */}
         <Pressable className="bg-card rounded-xl border border-border mb-4 overflow-hidden">
           <View className="h-32 bg-primary/10 items-center justify-center">
-            <Feather name="image" size={36} color={colors.mutedForeground} />
+            <Image
+              source={require("../../assets/images/Whey100.webp")}
+              style={{ width: "100%", height: "100%", resizeMode: "cover" }}
+            />
           </View>
           <View className="p-4">
             <Text className="text-lg font-medium text-foreground mb-1">Whey Protein 900g</Text>
             <Text className="text-muted-foreground mb-2">Proteína de alta qualidade para recuperação muscular</Text>
             <View className="flex-row justify-between items-center">
-              <Text className="text-xl font-bold text-foreground">R$ 129,90</Text>
+              <Text className="text-xl font-bold text-foreground">R$ 269,90</Text>
               <Pressable className="bg-primary py-2 px-4 rounded-lg">
                 <Text className="text-white font-medium">Comprar</Text>
               </Pressable>
@@ -69,11 +79,14 @@ export default function StoreScreen() {
         {/* Product 2 */}
         <Pressable className="bg-card rounded-xl border border-border mb-4 overflow-hidden">
           <View className="h-32 bg-primary/10 items-center justify-center">
-            <Feather name="image" size={36} color={colors.mutedForeground} />
+            <Image
+              source={require("../../assets/images/silvers.jpg")}
+              style={{ width: "100%", height: "100%", resizeMode: "cover" }}
+            />
           </View>
           <View className="p-4">
-            <Text className="text-lg font-medium text-foreground mb-1">Camiseta Dry-Fit</Text>
-            <Text className="text-muted-foreground mb-2">Camiseta performance com tecnologia de secagem rápida</Text>
+            <Text className="text-lg font-medium text-foreground mb-1">T-Shirt Silvers</Text>
+            <Text className="text-muted-foreground mb-2">Camiseta estampada tamanhos P até GG</Text>
             <View className="flex-row justify-between items-center">
               <Text className="text-xl font-bold text-foreground">R$ 79,90</Text>
               <Pressable className="bg-primary py-2 px-4 rounded-lg">
