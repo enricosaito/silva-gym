@@ -99,30 +99,20 @@ export default function Profile() {
         </View>
 
         <View className="px-6 pb-6">
-          {userProfile?.macros && (
-            <View className="mb-6">
-              <View className="flex-row justify-between items-center mb-4">
-                <Text className="text-lg font-bold text-foreground">Suas Metas Nutricionais</Text>
-                <Pressable onPress={handleResetMacros}>
-                  <Text className="text-primary text-sm">Resetar</Text>
-                </Pressable>
+          <View className="mt-6">
+            <Pressable
+              className="bg-card rounded-xl border border-border p-4 flex-row items-center"
+              onPress={() => router.push("/more")}
+            >
+              <View className="w-10 h-10 rounded-full bg-primary/10 items-center justify-center mr-3">
+                <Feather name="more-horizontal" size={20} color={colors.primary} />
               </View>
-              <MacroSummary macros={userProfile.macros} compact={true} />
-            </View>
-          )}
-
-          <Text className="text-lg font-bold text-foreground mb-4">Estatísticas</Text>
-
-          <View className="flex-row mb-4">
-            <View className="flex-1 bg-card rounded-xl border border-border p-4 mr-2">
-              <Text className="text-muted-foreground">Dias Ativos</Text>
-              <Text className="text-2xl font-bold text-foreground">0</Text>
-            </View>
-
-            <View className="flex-1 bg-card rounded-xl border border-border p-4 ml-2">
-              <Text className="text-muted-foreground">Refeições</Text>
-              <Text className="text-2xl font-bold text-foreground">0</Text>
-            </View>
+              <View className="flex-1">
+                <Text className="text-foreground font-medium">Mais Opções</Text>
+                <Text className="text-muted-foreground text-xs">Configurações, suporte e mais</Text>
+              </View>
+              <Feather name="chevron-right" size={20} color={colors.mutedForeground} />
+            </Pressable>
           </View>
 
           <View className="bg-card rounded-xl border border-border p-4 mb-6">

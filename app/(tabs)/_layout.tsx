@@ -1,4 +1,4 @@
-// app/(tabs)/_layout.tsx (improved tab positioning)
+// app/(tabs)/_layout.tsx
 import { Tabs } from "expo-router";
 import { Feather } from "@expo/vector-icons";
 import { FontAwesome5 } from "@expo/vector-icons";
@@ -45,12 +45,12 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="calculator"
+        name="agenda"
         options={{
-          title: "Calcular",
+          title: "Agenda",
           tabBarIcon: ({ color }) => (
             <View className="items-center justify-center">
-              <Feather name="sliders" size={24} color={color} />
+              <Feather name="calendar" size={24} color={color} />
             </View>
           ),
         }}
@@ -69,29 +69,29 @@ export default function TabLayout() {
           tabPress: (e) => {
             // Prevent default action
             e.preventDefault();
-            // Just navigate to tracking without showing search
-            router.push("/tracking");
+            // Navigate to add workout page
+            router.push("/add-workout");
           },
         })}
       />
       <Tabs.Screen
-        name="recipes"
+        name="workouts"
         options={{
-          title: "Receitas",
+          title: "Meus Treinos",
           tabBarIcon: ({ color }) => (
             <View className="items-center justify-center">
-              <FontAwesome5 name="utensils" size={22} color={color} />
+              <FontAwesome5 name="dumbbell" size={22} color={color} />
             </View>
           ),
         }}
       />
       <Tabs.Screen
-        name="more"
+        name="store"
         options={{
-          title: "Mais",
+          title: "Loja",
           tabBarIcon: ({ color }) => (
             <View className="items-center justify-center">
-              <Feather name="more-horizontal" size={24} color={color} />
+              <Feather name="shopping-bag" size={24} color={color} />
             </View>
           ),
         }}

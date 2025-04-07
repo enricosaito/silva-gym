@@ -18,12 +18,9 @@ export default function RootLayout() {
             <Stack.Screen name="profile/edit" />
             <Stack.Screen name="profile/password" />
             <Stack.Screen name="notifications" />
-            <Stack.Screen 
-              name="tracking" 
-              options={{ 
-                presentation: "modal"
-              }} 
-            />
+            <Stack.Screen name="add-workout" options={{ presentation: "modal" }} />
+            <Stack.Screen name="tracking" options={{ presentation: "modal" }} />
+            <Stack.Screen name="more" />
             <Stack.Screen name="auth" />
           </Stack>
         </AuthGuard>

@@ -1,8 +1,16 @@
-// app/auth/login.tsx
 import React, { useState } from "react";
-import { Text, View, SafeAreaView, TouchableOpacity, ActivityIndicator, ScrollView } from "react-native";
+import {
+  Text,
+  View,
+  Image,
+  SafeAreaView,
+  TouchableOpacity,
+  ActivityIndicator,
+  ScrollView,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import { useRouter } from "expo-router";
-import { Feather } from "@expo/vector-icons";
 import { useAuth } from "../context/AuthContext";
 import { useTheme } from "../context/ThemeContext";
 import Button from "../components/ui/Button";
@@ -12,80 +20,88 @@ export default function Login() {
   const router = useRouter();
   const { colors } = useTheme();
   const { signIn, loading } = useAuth();
-  
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  
+
   const handleLogin = async () => {
     if (!email || !password) {
       setErrorMessage("Por favor, preencha todos os campos.");
       return;
     }
-    
+
     try {
       const { error } = await signIn(email, password);
-      
+
       if (error) {
         setErrorMessage(error.message || "Erro ao fazer login. Tente novamente.");
       } else {
-        // Redirect to home on successful login
         router.replace("/(tabs)");
       }
     } catch (error: any) {
       setErrorMessage(error.message || "Ocorreu um erro inesperado. Tente novamente.");
     }
   };
-  
+
   return (
-    <View style={{ flex: 1, backgroundColor: colors.background }}>
-      <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
-        <ScrollView className="flex-1 px-4">
-          <View className="py-10 items-center mb-6">
-            <View className="w-20 h-20 bg-primary rounded-full items-center justify-center mb-4">
-              <Feather name="activity" size={36} color="white" />
-            </View>
-            <Text className="text-3xl font-bold text-foreground mb-2">Scar Fit</Text>
-            <Text className="text-muted-foreground text-center">Sua saúde em primeiro lugar</Text>
+    <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
+      <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : undefined} style={{ flex: 1 }}>
+        <ScrollView
+          contentContainerStyle={{ paddingHorizontal: 24, paddingVertical: 32 }}
+          keyboardShouldPersistTaps="handled"
+        >
+          {/* Logo */}
+          <View className="items-center mb-10">
+            <Image
+              source={require("../../assets/images/Logo-Laranja.webp")}
+              style={{ width: 200, height: 70, resizeMode: "contain" }}
+            />
           </View>
-          
-          <Text className="text-2xl font-bold text-foreground mb-6">Login</Text>
-          
+
+          {/* Title */}
+          <View className="mb-8">
+            <Text className="text-3xl font-bold text-foreground mb-1">Login</Text>
+            <Text className="text-muted-foreground">Entre com sua conta para continuar</Text>
+          </View>
+
+          {/* Error Message */}
           {errorMessage ? (
-            <View className="mb-4 bg-red-500/10 p-3 rounded-lg border border-red-500/30">
+            <View className="mb-5 bg-red-500/10 p-3 rounded-lg border border-red-500/30">
               <Text className="text-red-500">{errorMessage}</Text>
             </View>
           ) : null}
-          
-          <FormField
-            label="Email"
-            value={email}
-            onChangeText={setEmail}
-            placeholder="seu@email.com"
-            keyboardType="email-address"
-            autoCapitalize="none"
-          />
-          
-          <FormField
-            label="Senha"
-            value={password}
-            onChangeText={setPassword}
-            placeholder="Sua senha"
-            secureTextEntry
-          />
-          
-          <Button
-            className="mb-4"
-            onPress={handleLogin}
-            disabled={loading}
-          >
+
+          {/* Form Fields */}
+          <View className="gap-4 mb-6">
+            <FormField
+              label="Email"
+              value={email}
+              onChangeText={setEmail}
+              placeholder="seu@email.com"
+              keyboardType="email-address"
+              autoCapitalize="none"
+            />
+            <FormField
+              label="Senha"
+              value={password}
+              onChangeText={setPassword}
+              placeholder="Sua senha"
+              secureTextEntry
+            />
+          </View>
+
+          {/* Login Button */}
+          <Button className="mb-4" onPress={handleLogin} disabled={loading}>
             {loading ? <ActivityIndicator size="small" color="white" /> : "Entrar"}
           </Button>
-          
-          <TouchableOpacity className="mb-6" onPress={() => router.push("/auth/forgot-password")}>
-            <Text className="text-primary text-center">Esqueci minha senha</Text>
+
+          {/* Forgot Password */}
+          <TouchableOpacity className="mb-8" onPress={() => router.push("/auth/forgot-password")}>
+            <Text className="text-primary text-center font-medium">Esqueci minha senha</Text>
           </TouchableOpacity>
-          
+
+          {/* Register Link */}
           <View className="flex-row justify-center items-center">
             <Text className="text-muted-foreground">Não tem uma conta? </Text>
             <TouchableOpacity onPress={() => router.push("/auth/register")}>
@@ -93,7 +109,7 @@ export default function Login() {
             </TouchableOpacity>
           </View>
         </ScrollView>
-      </SafeAreaView>
-    </View>
+      </KeyboardAvoidingView>
+    </SafeAreaView>
   );
 }

@@ -1,32 +1,32 @@
 // app/theme/colors.ts
 export const colors = {
   light: {
-    background: "#f8f9fa",
-    foreground: "#151a20",
-    card: "#ffffff",
-    primary: "#2563eb", // Changed to blue
-    primaryForeground: "#ffffff",
-    secondary: "#edf2ff", // Adjusted for blue theme
-    secondaryForeground: "#1e293b",
-    muted: "#f1f5f9",
-    mutedForeground: "#64748b",
-    accent: "#dbeafe", // Light blue accent
-    accentForeground: "#1e40af",
-    border: "#e2e8f0",
+    background: "#f5f5f5", // Light gray background
+    foreground: "#171717", // Near-black text
+    card: "#ffffff", // White cards
+    primary: "#ff5000", // Vibrant, hot orange
+    primaryForeground: "#ffffff", // White text on primary
+    secondary: "#262626", // Dark gray (almost black)
+    secondaryForeground: "#f5f5f5", // Light gray text on secondary
+    muted: "#e5e5e5", // Light gray for muted areas
+    mutedForeground: "#737373", // Medium gray for less important text
+    accent: "#fef3c7", // Warm cream accent
+    accentForeground: "#7c2d12", // Dark warm brown for text on accent
+    border: "#d4d4d4", // Medium-light gray borders
   },
   dark: {
-    background: "#0f172a", // Dark blue background
-    foreground: "#f8fafc",
-    card: "#1e293b",
-    primary: "#3b82f6", // Blue primary color
-    primaryForeground: "#ffffff",
-    secondary: "#334155",
-    secondaryForeground: "#f8fafc",
-    muted: "#1e293b",
-    mutedForeground: "#94a3b8",
-    accent: "#1e40af",
-    accentForeground: "#f8fafc",
-    border: "#334155",
+    background: "#171717", // Near-black background (matches gym walls)
+    foreground: "#f5f5f5", // Light gray for text
+    card: "#262626", // Dark gray for cards
+    primary: "#ff5000", // Same vibrant orange as light mode
+    primaryForeground: "#ffffff", // White text on primary
+    secondary: "#404040", // Medium-dark gray
+    secondaryForeground: "#f5f5f5", // Light gray text on secondary
+    muted: "#262626", // Dark gray for muted areas
+    mutedForeground: "#a3a3a3", // Medium gray for less important text
+    accent: "#7c2d12", // Dark warm brown for accents
+    accentForeground: "#fef3c7", // Warm cream for text on accent
+    border: "#404040", // Medium-dark gray borders
   },
 };
 

@@ -1,9 +1,10 @@
-// app/(tabs)/more.tsx
+// app/more.tsx
 import React from "react";
 import { Text, View, SafeAreaView, ScrollView, Pressable, Alert } from "react-native";
 import { Feather } from "@expo/vector-icons";
-import { useTheme } from "../context/ThemeContext";
-import { useAuth } from "../context/AuthContext";
+import { useRouter } from "expo-router";
+import { useTheme } from "./context/ThemeContext";
+import { useAuth } from "./context/AuthContext";
 
 // Define the type for Feather icon names
 type FeatherIconName = "settings" | "moon" | "help-circle" | "info" | "star" | "share-2" | "log-out" | "chevron-right";
@@ -17,6 +18,7 @@ interface MenuItem {
 }
 
 export default function More() {
+  const router = useRouter();
   const { colors, theme, toggleTheme } = useTheme();
   const { signOut, user, loading } = useAuth();
 
@@ -50,22 +52,27 @@ export default function More() {
     },
     { icon: "help-circle", title: "Ajuda", route: "/help" },
     { icon: "info", title: "Sobre o app", route: "/about" },
-    { icon: "star", title: "Versão Premium", route: "/premium" },
+    { icon: "star", title: "Avalie o App", route: "/rate" },
     { icon: "share-2", title: "Compartilhar", route: "/share" },
-    { 
-      icon: "log-out", 
-      title: "Sair", 
+    {
+      icon: "log-out",
+      title: "Sair",
       route: "/logout",
-      action: handleLogout
+      action: handleLogout,
     },
   ];
 
   return (
     <SafeAreaView className="flex-1 bg-background">
+      <View className="flex-row items-center p-4 border-b border-border">
+        <Pressable onPress={() => router.back()} className="p-2">
+          <Feather name="arrow-left" size={24} color={colors.foreground} />
+        </Pressable>
+        <Text className="text-lg font-medium flex-1 text-center text-foreground mr-8">Mais Opções</Text>
+      </View>
+
       <ScrollView className="flex-1 px-4">
         <View className="py-6">
-          <Text className="text-2xl font-bold text-foreground mb-6">Mais Opções</Text>
-
           {/* User Info Section */}
           {user && (
             <View className="bg-card rounded-xl border border-border p-4 mb-6 flex-row items-center">
@@ -73,11 +80,9 @@ export default function More() {
                 <Feather name="user" size={20} color={colors.primary} />
               </View>
               <View className="flex-1">
-                <Text className="text-base font-medium text-foreground">
-                  {user.email}
-                </Text>
+                <Text className="text-base font-medium text-foreground">{user.email}</Text>
                 <Text className="text-xs text-muted-foreground">
-                  Membro desde {new Date(user.created_at || Date.now()).toLocaleDateString('pt-BR')}
+                  Membro desde {new Date(user.created_at || Date.now()).toLocaleDateString("pt-BR")}
                 </Text>
               </View>
               <Feather name="chevron-right" size={20} color={colors.mutedForeground} />
@@ -85,9 +90,9 @@ export default function More() {
           )}
 
           {menuItems.map((item, index) => (
-            <Pressable 
-              key={index} 
-              className="flex-row items-center py-4 border-b border-border" 
+            <Pressable
+              key={index}
+              className="flex-row items-center py-4 border-b border-border"
               onPress={item.action}
               disabled={loading && item.icon === "log-out"}
             >
@@ -104,12 +109,8 @@ export default function More() {
 
           {/* App Version */}
           <View className="mt-6 items-center">
-            <Text className="text-muted-foreground text-sm">ScarFit v1.0.0</Text>
-            {user && (
-              <Text className="text-muted-foreground text-xs mt-1">
-                Logado como: {user.email}
-              </Text>
-            )}
+            <Text className="text-muted-foreground text-sm">Gym Premium v1.0.0</Text>
+            {user && <Text className="text-muted-foreground text-xs mt-1">Logado como: {user.email}</Text>}
           </View>
         </View>
       </ScrollView>
