@@ -13,14 +13,14 @@ export default function StoreScreen() {
       <Header
         logo={
           <Image
-            source={require("../../assets/images/Logo-SN.webp")}
+            source={require("../../assets/images/LogoWhite.png")}
             style={{ width: 120, height: 40, resizeMode: "contain" }}
           />
         }
       />
 
       <ScrollView className="flex-1 p-4">
-        <Text className="text-2xl font-bold text-foreground mb-6">Produtos Premium</Text>
+        <Text className="text-2xl font-bold text-foreground mb-6">Produtos Silva Nutrition</Text>
 
         {/* Categories */}
         <View className="flex-row justify-between mb-6">
@@ -35,14 +35,14 @@ export default function StoreScreen() {
             <View className="h-16 w-16 rounded-full bg-primary/10 items-center justify-center mb-2">
               <Feather name="shopping-bag" size={22} color={colors.primary} />
             </View>
-            <Text className="text-foreground text-sm">Vestuário</Text>
+            <Text className="text-foreground text-sm">Roupas</Text>
           </Pressable>
 
           <Pressable className="items-center">
             <View className="h-16 w-16 rounded-full bg-primary/10 items-center justify-center mb-2">
               <Feather name="target" size={22} color={colors.primary} />
             </View>
-            <Text className="text-foreground text-sm">Equipamentos</Text>
+            <Text className="text-foreground text-sm">Acessórios</Text>
           </Pressable>
 
           <Pressable className="items-center">
@@ -68,7 +68,7 @@ export default function StoreScreen() {
             <Text className="text-lg font-medium text-foreground mb-1">Whey Protein 900g</Text>
             <Text className="text-muted-foreground mb-2">Proteína de alta qualidade para recuperação muscular</Text>
             <View className="flex-row justify-between items-center">
-              <Text className="text-xl font-bold text-foreground">R$ 269,90</Text>
+              <Text className="text-xl font-bold text-foreground">R$ 269,00</Text>
               <Pressable className="bg-primary py-2 px-4 rounded-lg">
                 <Text className="text-white font-medium">Comprar</Text>
               </Pressable>
@@ -88,7 +88,7 @@ export default function StoreScreen() {
             <Text className="text-lg font-medium text-foreground mb-1">T-Shirt Silvers</Text>
             <Text className="text-muted-foreground mb-2">Camiseta estampada tamanhos P até GG</Text>
             <View className="flex-row justify-between items-center">
-              <Text className="text-xl font-bold text-foreground">R$ 79,90</Text>
+              <Text className="text-xl font-bold text-foreground">R$ 119,00</Text>
               <Pressable className="bg-primary py-2 px-4 rounded-lg">
                 <Text className="text-white font-medium">Comprar</Text>
               </Pressable>
@@ -99,13 +99,18 @@ export default function StoreScreen() {
         {/* Product 3 */}
         <Pressable className="bg-card rounded-xl border border-border mb-6 overflow-hidden">
           <View className="h-32 bg-primary/10 items-center justify-center">
-            <Feather name="image" size={36} color={colors.mutedForeground} />
+            <Image
+              source={require("../../assets/images/ComboCreaPunch.jpg")}
+              style={{ width: "100%", height: "100%", resizeMode: "cover" }}
+            />
           </View>
           <View className="p-4">
-            <Text className="text-lg font-medium text-foreground mb-1">Luvas de Treino</Text>
-            <Text className="text-muted-foreground mb-2">Luvas anatômicas para proteção das mãos durante o treino</Text>
+            <Text className="text-lg font-medium text-foreground mb-1">Combo Creatina + Punch</Text>
+            <Text className="text-muted-foreground mb-2">
+              Sabores de Pré-Treino: Peach Mango, Red Fruit, Lemon Ice, Raspberry Candy
+            </Text>
             <View className="flex-row justify-between items-center">
-              <Text className="text-xl font-bold text-foreground">R$ 49,90</Text>
+              <Text className="text-xl font-bold text-foreground">R$ 318,00</Text>
               <Pressable className="bg-primary py-2 px-4 rounded-lg">
                 <Text className="text-white font-medium">Comprar</Text>
               </Pressable>

@@ -115,7 +115,7 @@ export default function HomeScreen() {
                 <Feather name="image" size={36} color={colors.mutedForeground} />
               </View>
               <View className="p-3">
-                <Text className="text-lg font-medium text-foreground mb-1">Boxe Funcional</Text>
+                <Text className="text-lg font-medium text-foreground mb-1">Spinning</Text>
                 <View className="flex-row justify-between">
                   <Text className="text-muted-foreground">Amanhã, 19:00</Text>
                   <Text className="text-primary">35 min</Text>
@@ -128,7 +128,7 @@ export default function HomeScreen() {
                 <Feather name="image" size={36} color={colors.mutedForeground} />
               </View>
               <View className="p-3">
-                <Text className="text-lg font-medium text-foreground mb-1">CrossTraining</Text>
+                <Text className="text-lg font-medium text-foreground mb-1">Funcional - Praia</Text>
                 <View className="flex-row justify-between">
                   <Text className="text-muted-foreground">Quarta, 18:30</Text>
                   <Text className="text-primary">50 min</Text>
@@ -141,7 +141,7 @@ export default function HomeScreen() {
                 <Feather name="image" size={36} color={colors.mutedForeground} />
               </View>
               <View className="p-3">
-                <Text className="text-lg font-medium text-foreground mb-1">Spinning</Text>
+                <Text className="text-lg font-medium text-foreground mb-1">Burn</Text>
                 <View className="flex-row justify-between">
                   <Text className="text-muted-foreground">Quinta, 20:00</Text>
                   <Text className="text-primary">45 min</Text>

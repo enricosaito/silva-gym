@@ -115,12 +115,15 @@ export default function Profile() {
             </Pressable>
           </View>
 
-          <View className="bg-card rounded-xl border border-border p-4 mb-6">
-            <Text className="text-muted-foreground mb-2">Plano Atual</Text>
+          <View className="bg-card rounded-xl border border-border p-4 mt-4 mb-6">
+            <Text className="text-muted-foreground mb-2">Seu Plano</Text>
             <View className="flex-row justify-between items-center">
-              <Text className="text-lg font-bold text-foreground">Gratuito</Text>
+              <View className="flex-1">
+                <Text className="text-lg font-bold text-foreground">Anual: Olegário</Text>
+                <Text className="text-muted-foreground text-xs">Até: 21/03/2025</Text>
+              </View>
               <View className="bg-primary py-1 px-3 rounded-full">
-                <Text className="text-white text-xs font-medium">Upgrade</Text>
+                <Text className="text-white text-xs font-medium">Ativo</Text>
               </View>
             </View>
           </View>
