@@ -1,4 +1,4 @@
-// app/_layout.tsx
+// app/_layout.tsx (modified with new routes)
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { ThemeProvider } from "./context/ThemeContext";
@@ -20,6 +20,8 @@ export default function RootLayout() {
             <Stack.Screen name="notifications" />
             <Stack.Screen name="add-workout" options={{ presentation: "modal" }} />
             <Stack.Screen name="tracking" options={{ presentation: "modal" }} />
+            <Stack.Screen name="schedule-class" options={{ presentation: "modal" }} />
+            <Stack.Screen name="trainer-feedback" options={{ presentation: "modal" }} />
             <Stack.Screen name="more" />
             <Stack.Screen name="auth" />
           </Stack>

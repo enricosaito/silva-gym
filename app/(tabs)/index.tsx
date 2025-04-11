@@ -161,6 +161,31 @@ export default function HomeScreen() {
               <Text className="text-center text-accent-foreground font-medium">Ver Mais</Text>
             </Pressable>
           </View>
+          {/* New features: Class Scheduling and Trainer Feedback */}
+          <Text className="text-xl font-bold text-foreground mb-4">Serviços da Academia</Text>
+          <View className="flex-row mb-6">
+            <Pressable
+              className="flex-1 bg-card rounded-xl border border-border p-4 mr-2"
+              onPress={() => router.push("/schedule-class")}
+            >
+              <View className="w-12 h-12 rounded-full bg-primary/10 items-center justify-center mb-3">
+                <Feather name="calendar" size={24} color={colors.primary} />
+              </View>
+              <Text className="text-foreground font-semibold text-lg mb-1">Agendar Aula</Text>
+              <Text className="text-muted-foreground text-sm">Reserve seu horário nas aulas da academia</Text>
+            </Pressable>
+
+            <Pressable
+              className="flex-1 bg-card rounded-xl border border-border p-4"
+              onPress={() => router.push("/trainer-feedback")}
+            >
+              <View className="w-12 h-12 rounded-full bg-primary/10 items-center justify-center mb-3">
+                <Feather name="star" size={24} color={colors.primary} />
+              </View>
+              <Text className="text-foreground font-semibold text-lg mb-1">Avaliar Treinador</Text>
+              <Text className="text-muted-foreground text-sm">Compartilhe sua experiência com os treinadores</Text>
+            </Pressable>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
